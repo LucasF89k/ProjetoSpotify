@@ -453,6 +453,7 @@ img {
 
 .player__icon--play {
   font-size: 35px;
+  margin: 0 9px;
 }
 
 .player__progress {
