@@ -6,11 +6,11 @@ import { songsArray } from "../assets/assets/database/songs";
 const Main = ({ type }) => {
   return (
     <div className="main">
-      {/*Intem List de Artista*/}
+      {/* Item List de Artistas */}
       {type === "artists" || type === undefined ? (
         <ItemList
           title="Artistas"
-          items={8}
+          items={10}
           itemsArray={artistArray}
           path="/artists"
           idPath="/artist"
@@ -19,7 +19,7 @@ const Main = ({ type }) => {
         <></>
       )}
 
-      {/*Intem List de Músicas*/}
+      {/* Item List de Músicas */}
       {type === "songs" || type === undefined ? (
         <ItemList
           title="Músicas"
@@ -34,4 +34,5 @@ const Main = ({ type }) => {
     </div>
   );
 };
+
 export default Main;

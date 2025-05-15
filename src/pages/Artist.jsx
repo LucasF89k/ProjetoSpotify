@@ -9,11 +9,12 @@ import { songsArray } from "../assets/assets/database/songs";
 const Artist = () => {
   const { id } = useParams();
 
-  const artistObg = artistArray.filter(
+  const { name, banner } = artistArray.filter(
     (currentArtistObj) => currentArtistObj.id === Number(id)
   )[0];
+
   const songsArrayFromArtist = songsArray.filter(
-    (currentSongObj) => currentSongObj.artist === artistObg.name
+    (currentSongObj) => currentSongObj.artist === name
   );
 
   const randomIndex = Math.floor(
@@ -26,16 +27,16 @@ const Artist = () => {
       <div
         className="artist__header"
         style={{
-          backgroundImage: `linear-gradient(to bottom, var(--_shade), var(--_shade)), url(${artistObg.banner})`,
+          backgroundImage: `linear-gradient(to bottom, var(--_shade), var(--_shade)), url(${banner})`,
         }}
       >
-        <h2 className="artist__title">{artistObg.name}</h2>
+        <h2 className="artist__title">{name}</h2>
       </div>
 
       <div className="artist__body">
         <h2>Populares</h2>
 
-        <SongList />
+        <SongList songsArray={songsArrayFromArtist} />
       </div>
 
       <Link to={`/song/${randomIdFromArtist}`}>
